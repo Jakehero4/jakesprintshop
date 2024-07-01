@@ -19,11 +19,11 @@
         </section>
     </main>
     <footer>
-        <p>&copy; 2024 Your Name</p>
+        <p>&copy; 2024 Jake Perrin</p>
     </footer>
     <script>
         // Fetch orders from Google Sheets
-        const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/<YOUR_SHEET_ID>/pub?output=csv';
+        const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRjMuRlZegB2dcd-u_QC4V8dMMTB0eP7i5UH27orgFYELZypvzhxQUC98D88r2ZSH3NcJTElw-YVdmb/pub?output=csv';
         fetch(sheetUrl)
             .then(response => response.text())
             .then(csv => {

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jakes 3D Print Shop</title>
+    <title>Jake's 3D Print Shop</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -13,9 +13,21 @@
     <main>
         <section id="orders">
             <h2>Current Orders</h2>
-            <ul>
-                
-            </ul>
+            <ul></ul>
+        </section>
+        <section id="order-form">
+            <h2>Submit a New Order</h2>
+            <form name="order" method="POST" data-netlify="true">
+                <label for="partName">Part Name:</label>
+                <input type="text" id="partName" name="partName" required>
+                <label for="material">Material:</label>
+                <input type="text" id="material" name="material" required>
+                <label for="color">Color:</label>
+                <input type="text" id="color" name="color" required>
+                <label for="status">Status:</label>
+                <input type="text" id="status" name="status" value="New Order" readonly>
+                <button type="submit">Submit Order</button>
+            </form>
         </section>
     </main>
     <footer>
@@ -28,10 +40,10 @@
             .then(csv => {
                 const rows = csv.split('\n').slice(1);
                 const ordersList = document.querySelector('#orders ul');
-                rows.forEach(row => {
+                rows.forEach((row, index) => {
                     const cols = row.split(',');
                     const li = document.createElement('li');
-                    li.textContent = `Order #${cols[0]}: ${cols[1]} - ${cols[2]} - ${cols[3]} - ${cols[4]}`;
+                    li.textContent = `Order ${index + 1}: ${cols[1]} - ${cols[2]} - ${cols[3]} - ${cols[4]}`;
                     ordersList.appendChild(li);
                 });
             })
